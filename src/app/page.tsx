@@ -1,103 +1,332 @@
+import { Linkedin } from "lucide-react";
+import { Mail } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      {/* Hero Section */}
+      <section className="container py-12 md:py-24 lg:py-32">
+        <div className="flex flex-col items-center gap-4 text-center">
+          <Avatar className="h-24 w-24">
+            <AvatarImage src="/placeholder.svg" alt="Profile" />
+            <AvatarFallback>JD</AvatarFallback>
+          </Avatar>
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            Amir Ghezala
+          </h1>
+          <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+            Web Developer specializing in modern JavaScript frameworks and
+            responsive design
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+      {/* Experience Section */}
+      <section id="experience" className="container py-12 md:py-24 lg:py-32">
+        <div className="mx-auto grid max-w-5xl gap-8">
+          <div className="flex flex-col items-start gap-4">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              Experience
+            </h2>
+            <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              My professional journey in web development
+            </p>
+          </div>
+          <div className="grid gap-8">
+            <div className="flex flex-col gap-2 border-l pl-6 relative">
+              <div className="absolute w-3 h-3 bg-primary rounded-full -left-[6.5px] top-2"></div>
+              <div className="flex flex-col gap-1">
+                <h3 className="font-semibold">Senior Frontend Developer</h3>
+                <p className="text-sm text-gray-500">
+                  Tech Company • 2021 - Present
+                </p>
+              </div>
+              <p className="text-gray-500">
+                Led the development of responsive web applications using React
+                and Next.js. Implemented modern UI/UX designs and improved
+                performance metrics by 40%.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 border-l pl-6 relative">
+              <div className="absolute w-3 h-3 bg-primary rounded-full -left-[6.5px] top-2"></div>
+              <div className="flex flex-col gap-1">
+                <h3 className="font-semibold">Frontend Developer</h3>
+                <p className="text-sm text-gray-500">
+                  Digital Agency • 2018 - 2021
+                </p>
+              </div>
+              <p className="text-gray-500">
+                Developed and maintained client websites using JavaScript, HTML,
+                and CSS. Collaborated with designers to implement pixel-perfect
+                interfaces.
+              </p>
+            </div>
+            <div className="flex flex-col gap-2 border-l pl-6 relative">
+              <div className="absolute w-3 h-3 bg-primary rounded-full -left-[6.5px] top-2"></div>
+              <div className="flex flex-col gap-1">
+                <h3 className="font-semibold">Junior Web Developer</h3>
+                <p className="text-sm text-gray-500">Startup • 2016 - 2018</p>
+              </div>
+              <p className="text-gray-500">
+                Built and maintained company website and internal tools. Gained
+                experience with JavaScript frameworks and responsive design
+                principles.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section
+        id="projects"
+        className="container py-12 md:py-24 lg:py-32 bg-gray-50"
+      >
+        <div className="mx-auto grid max-w-5xl gap-8">
+          <div className="flex flex-col items-start gap-4">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              Projects
+            </h2>
+            <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Side projects and personal work I&apos;ve built
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2">
+            <Card>
+              <CardHeader>
+                <CardTitle>E-commerce Dashboard</CardTitle>
+                <CardDescription>
+                  React, TypeScript, Tailwind CSS
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
+                  <Image
+                    src="/placeholder.svg?height=200&width=400"
+                    alt="E-commerce Dashboard"
+                    className="object-cover"
+                    width={400}
+                    height={200}
+                  />
+                </div>
+                <p className="mt-4 text-gray-500">
+                  A comprehensive dashboard for e-commerce stores with
+                  analytics, inventory management, and order processing.
+                </p>
+              </CardContent>
+              <CardFooter className="flex justify-between">
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="#">Demo</Link>
+                </Button>
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="#">Code</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Weather App</CardTitle>
+                <CardDescription>Next.js, API Integration</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
+                  <Image
+                    src="/placeholder.svg?height=200&width=400"
+                    alt="Weather App"
+                    className="object-cover"
+                    width={400}
+                    height={200}
+                  />
+                </div>
+                <p className="mt-4 text-gray-500">
+                  A weather application that provides real-time forecasts,
+                  historical data, and location-based weather information.
+                </p>
+              </CardContent>
+              <CardFooter className="flex justify-between">
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="#">Demo</Link>
+                </Button>
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="#">Code</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Task Management App</CardTitle>
+                <CardDescription>React, Redux, Node.js</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
+                  <Image
+                    src="/placeholder.svg?height=200&width=400"
+                    alt="Task Management App"
+                    className="object-cover"
+                    width={400}
+                    height={200}
+                  />
+                </div>
+                <p className="mt-4 text-gray-500">
+                  A full-stack task management application with user
+                  authentication, task categorization, and progress tracking.
+                </p>
+              </CardContent>
+              <CardFooter className="flex justify-between">
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="#">Demo</Link>
+                </Button>
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="#">Code</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Portfolio Website</CardTitle>
+                <CardDescription>Next.js, Tailwind CSS</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
+                  <Image
+                    src="/placeholder.svg?height=200&width=400"
+                    alt="Portfolio Website"
+                    className="object-cover"
+                    width={400}
+                    height={200}
+                  />
+                </div>
+                <p className="mt-4 text-gray-500">
+                  A minimalist portfolio website showcasing my work, skills, and
+                  professional experience in web development.
+                </p>
+              </CardContent>
+              <CardFooter className="flex justify-between">
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="#">Demo</Link>
+                </Button>
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="#">Code</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Articles Section */}
+      <section
+        id="articles"
+        className="container py-12 md:py-24 lg:py-32 bg-gray-50"
+      >
+        <div className="mx-auto grid max-w-5xl gap-8">
+          <div className="flex flex-col items-start gap-4">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              Articles
+            </h2>
+            <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Sharing my knowledge and insights about web development
+            </p>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <Card>
+              <CardHeader>
+                <CardTitle>Modern React Patterns</CardTitle>
+                <CardDescription>Published on May 15, 2023</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-500">
+                  An exploration of modern React patterns and best practices for
+                  building scalable applications.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="ghost" className="w-full" asChild>
+                  <Link href="#">Read Article</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>CSS Grid Mastery</CardTitle>
+                <CardDescription>Published on March 22, 2023</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-500">
+                  A comprehensive guide to mastering CSS Grid for complex
+                  layouts and responsive designs.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="ghost" className="w-full" asChild>
+                  <Link href="#">Read Article</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>JavaScript Performance</CardTitle>
+                <CardDescription>Published on January 10, 2023</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-500">
+                  Tips and techniques for optimizing JavaScript performance in
+                  modern web applications.
+                </p>
+              </CardContent>
+              <CardFooter>
+                <Button variant="ghost" className="w-full" asChild>
+                  <Link href="#">Read Article</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/*contact section*/}
+      <section id="contact" className="container py-12 md:py-24 lg:py-32">
+        <div className="mx-auto grid max-w-5xl gap-8">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              Get in Touch
+            </h2>
+            <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Interested in working together? Feel free to reach out.
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Button asChild>
+                <Link href="mailto:hello@example.com">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Email Me
+                </Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Linkedin className="mr-2 h-4 w-4" />
+                  LinkedIn
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
