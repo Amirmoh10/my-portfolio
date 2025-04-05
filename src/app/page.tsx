@@ -2,6 +2,7 @@ import { ArrowRight, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import Experience from "@/components/experience";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,15 +21,15 @@ export default function Home() {
       <section className="container px-4 sm:px-6 md:px-8 lg:px-10 py-8 md:py-12 lg:py-24">
         <div className="flex flex-col items-center gap-4 text-center">
           <Avatar className="h-20 w-20 md:h-24 md:w-24">
-            <AvatarImage src="/placeholder.svg" alt="Profile" />
+            <AvatarImage src="/avatar.png" alt="Profile" />
             <AvatarFallback>AG</AvatarFallback>
           </Avatar>
           <h1 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
             Amir Ghezala
           </h1>
           <p className="max-w-[700px] text-gray-500 text-sm md:text-base lg:text-xl">
-            Web Developer specializing in modern JavaScript frameworks and
-            responsive design
+            Fullstack Software Engineer crafting performant web applications
+            with modern technologies and clean architecture
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             <Button asChild>
@@ -44,64 +45,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="experience"
-        className="container px-4 sm:px-6 md:px-8 lg:px-10 py-8 md:py-12 lg:py-24"
-      >
-        <div className="mx-auto grid max-w-5xl gap-6 md:gap-8">
-          <div className="flex flex-col items-start gap-2 md:gap-4">
-            <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
-              Experience
-            </h2>
-            <p className="max-w-[700px] text-gray-500 text-sm md:text-base lg:text-xl">
-              My professional journey in web development
-            </p>
-          </div>
-          <div className="grid gap-6 md:gap-8">
-            <div className="flex flex-col gap-2 border-l pl-4 md:pl-6 relative">
-              <div className="absolute w-2 h-2 md:w-3 md:h-3 bg-primary rounded-full -left-[4.5px] md:-left-[6.5px] top-2"></div>
-              <div className="flex flex-col gap-1">
-                <h3 className="font-semibold">Senior Frontend Developer</h3>
-                <p className="text-xs md:text-sm text-gray-500">
-                  Tech Company • 2021 - Present
-                </p>
-              </div>
-              <p className="text-sm md:text-base text-gray-500">
-                Led the development of responsive web applications using React
-                and Next.js. Implemented modern UI/UX designs and improved
-                performance metrics by 40%.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 border-l pl-6 relative">
-              <div className="absolute w-3 h-3 bg-primary rounded-full -left-[6.5px] top-2"></div>
-              <div className="flex flex-col gap-1">
-                <h3 className="font-semibold">Frontend Developer</h3>
-                <p className="text-sm text-gray-500">
-                  Digital Agency • 2018 - 2021
-                </p>
-              </div>
-              <p className="text-gray-500">
-                Developed and maintained client websites using JavaScript, HTML,
-                and CSS. Collaborated with designers to implement pixel-perfect
-                interfaces.
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 border-l pl-6 relative">
-              <div className="absolute w-3 h-3 bg-primary rounded-full -left-[6.5px] top-2"></div>
-              <div className="flex flex-col gap-1">
-                <h3 className="font-semibold">Junior Web Developer</h3>
-                <p className="text-sm text-gray-500">Startup • 2016 - 2018</p>
-              </div>
-              <p className="text-gray-500">
-                Built and maintained company website and internal tools. Gained
-                experience with JavaScript frameworks and responsive design
-                principles.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Experience />
       <section
         id="articles"
         className="container px-4 sm:px-6 md:px-8 lg:px-10 py-12 md:py-24 lg:py-32 bg-gray-50"
