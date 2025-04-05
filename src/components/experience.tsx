@@ -86,7 +86,18 @@ const Experience = () => {
                 components in a design system used across the company&apos;s
                 teams.
               </li>
-              <li>Implemented pages on a Gatsby static site.</li>
+              <li>
+                Implemented
+                <a
+                  href="https://ahrefs.com/vs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline hover:underline"
+                >
+                  pages
+                </a>{" "}
+                on a Gatsby static site.
+              </li>
               <li>Contributed to open source projects.</li>
             </ul>
           </div>
