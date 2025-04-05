@@ -87,7 +87,7 @@ const Experience = () => {
                 teams.
               </li>
               <li>
-                Implemented
+                Implemented{" "}
                 <a
                   href="https://ahrefs.com/vs"
                   target="_blank"
