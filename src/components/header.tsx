@@ -1,69 +1,69 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Menu } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
+const MobileNav = () => {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="ghost" size="icon" className="md:hidden">
+          <Menu className="h-6 w-6" />
+          <span className="sr-only">Toggle menu</span>
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+        <nav className="flex flex-col gap-4">
+          <Link href="#experience" className="block px-2 py-1 text-lg">
+            Experience
+          </Link>
+          <Link href="#articles" className="block px-2 py-1 text-lg">
+            Articles
+          </Link>
+          <Link href="#skills" className="block px-2 py-1 text-lg">
+            Skills
+          </Link>
+          <Link href="#projects" className="block px-2 py-1 text-lg">
+            Projects
+          </Link>
+          <Link href="#contact" className="block px-2 py-1 text-lg">
+            Contact
+          </Link>
+        </nav>
+      </SheetContent>
+    </Sheet>
+  );
+};
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex justify-center">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold">Portfolio</span>
+    <header className="sticky top-0 z-50 w-full border-b bg-background flex justify-center">
+      <div className="container flex h-16 items-center justify-between px-4 md:px-4 lg:px-0">
+        <Link href="/" className="flex items-center space-x-2">
+          <span className="text-xl font-bold">Portfolio</span>
+        </Link>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center gap-6">
+          <Link href="#experience" className="text-sm font-medium">
+            Experience
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
-            <Link
-              href="#experience"
-              className="transition-colors hover:text-foreground/80"
-            >
-              Experience
-            </Link>
-            <Link
-              href="#articles"
-              className="transition-colors hover:text-foreground/80"
-            >
-              Articles
-            </Link>
-            <Link
-              href="#skills"
-              className="transition-colors hover:text-foreground/80"
-            >
-              Skills
-            </Link>
-            <Link
-              href="#projects"
-              className="transition-colors hover:text-foreground/80"
-            >
-              Projects
-            </Link>
-          </nav>
-        </div>
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" asChild>
-              <Link href="https://github.com" target="_blank" rel="noreferrer">
-                <Github className="h-4 w-4" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-            </Button>
-            <Button variant="ghost" size="icon" asChild>
-              <Link
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Linkedin className="h-4 w-4" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-            </Button>
-            <Button variant="ghost" size="icon" asChild>
-              <Link href="mailto:hello@example.com">
-                <Mail className="h-4 w-4" />
-                <span className="sr-only">Email</span>
-              </Link>
-            </Button>
-          </div>
-        </div>
+          <Link href="#articles" className="text-sm font-medium">
+            Articles
+          </Link>
+          <Link href="#skills" className="text-sm font-medium">
+            Skills
+          </Link>
+          <Link href="#projects" className="text-sm font-medium">
+            Projects
+          </Link>
+          <Link href="#contact" className="text-sm font-medium">
+            Contact
+          </Link>
+        </nav>
+
+        <MobileNav />
       </div>
     </header>
   );
