@@ -29,22 +29,41 @@ const Projects = () => {
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2">
           <Card>
             <CardHeader>
-              <CardTitle>E-commerce Dashboard</CardTitle>
-              <CardDescription>React, TypeScript, Tailwind CSS</CardDescription>
+              <CardTitle>Ticket Bounty</CardTitle>
+              <CardDescription>
+                Next.js 15.2, React 19, TypeScript, PostgreSQL with Prisma ORM,
+                Zod, Shadcn/ui
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
                 <Image
                   src="/placeholder.svg"
-                  alt="E-commerce Dashboard"
+                  alt="Ticket Bounty"
                   width={400}
                   height={200}
                   className="object-cover w-full h-full"
                 />
               </div>
               <p className="mt-4 text-gray-500">
-                A comprehensive dashboard for e-commerce stores with analytics,
-                inventory management, and order processing.
+                The application serves as an excellent example of a modern web
+                application that follows industry best practices while
+                maintaining clean code and a great user experience. It
+                demonstrates proficiency in:
+                <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                  <li>Modern React patterns and best practices</li>
+                  <li>Full-stack development with Next.js</li>
+                  <li>Database design and ORM usage</li>
+                  <li>Multiple rendering strategies (SSR, SSG, ISR, CSR)</li>
+                  <li>Advanced caching and data revalidation techniques</li>
+                  <li>
+                    Type-safe programming with TypeScript and Zod validation
+                  </li>
+                  <li>UI/UX design principles</li>
+                  <li>State management and data flow</li>
+                  <li>Component architecture and reusability</li>
+                  <li>Performance optimization techniques</li>
+                </ul>
               </p>
             </CardContent>
             <CardFooter className="flex justify-between">
