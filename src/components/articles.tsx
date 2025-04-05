@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function Articles() {
+function Articles() {
   return (
     <section
       id="articles"
@@ -151,3 +151,5 @@ export default function Articles() {
     </section>
   );
 }
+
+export default Articles;

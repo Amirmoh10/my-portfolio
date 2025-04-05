@@ -4,8 +4,8 @@ import Link from "next/link";
 
 import Articles from "@/components/articles";
 import Experience from "@/components/experience";
+import Skills from "@/components/skills";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -47,61 +47,7 @@ export default function Home() {
       </section>
       <Experience />
       <Articles />
-      <section
-        id="skills"
-        className="container px-4 sm:px-6 md:px-8 lg:px-10 py-12 md:py-24 lg:py-32"
-      >
-        <div className="mx-auto grid max-w-5xl gap-8">
-          <div className="flex flex-col items-start gap-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-              Skills
-            </h2>
-            <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Technologies and tools I specialize in
-            </p>
-          </div>
-          <div className="grid gap-4">
-            <div>
-              <h3 className="font-semibold mb-4">Frontend</h3>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary">JavaScript</Badge>
-                <Badge variant="secondary">TypeScript</Badge>
-                <Badge variant="secondary">React</Badge>
-                <Badge variant="secondary">Next.js</Badge>
-                <Badge variant="secondary">HTML5</Badge>
-                <Badge variant="secondary">CSS3</Badge>
-                <Badge variant="secondary">Tailwind CSS</Badge>
-                <Badge variant="secondary">SASS</Badge>
-              </div>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">Backend</h3>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary">Node.js</Badge>
-                <Badge variant="secondary">Express</Badge>
-                <Badge variant="secondary">MongoDB</Badge>
-                <Badge variant="secondary">PostgreSQL</Badge>
-                <Badge variant="secondary">REST API</Badge>
-                <Badge variant="secondary">GraphQL</Badge>
-              </div>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-4">Tools & Others</h3>
-              <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary">Git</Badge>
-                <Badge variant="secondary">GitHub</Badge>
-                <Badge variant="secondary">VS Code</Badge>
-                <Badge variant="secondary">Webpack</Badge>
-                <Badge variant="secondary">Docker</Badge>
-                <Badge variant="secondary">CI/CD</Badge>
-                <Badge variant="secondary">Jest</Badge>
-                <Badge variant="secondary">Figma</Badge>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <Skills />
       <section
         id="projects"
         className="container px-4 sm:px-6 md:px-8 lg:px-10 py-12 md:py-24 lg:py-32 bg-gray-50"
