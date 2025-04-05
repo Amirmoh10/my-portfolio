@@ -2,6 +2,7 @@ import { ArrowRight, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import Articles from "@/components/articles";
 import Experience from "@/components/experience";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -44,77 +45,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <Experience />
-      <section
-        id="articles"
-        className="container px-4 sm:px-6 md:px-8 lg:px-10 py-12 md:py-24 lg:py-32 bg-gray-50"
-      >
-        <div className="mx-auto grid max-w-5xl gap-8">
-          <div className="flex flex-col items-start gap-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-              Articles
-            </h2>
-            <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Sharing my knowledge and insights about web development
-            </p>
-          </div>
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <Card>
-              <CardHeader>
-                <CardTitle>Modern React Patterns</CardTitle>
-                <CardDescription>Published on May 15, 2023</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-500">
-                  An exploration of modern React patterns and best practices for
-                  building scalable applications.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="ghost" className="w-full" asChild>
-                  <Link href="#">Read Article</Link>
-                </Button>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>CSS Grid Mastery</CardTitle>
-                <CardDescription>Published on March 22, 2023</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-500">
-                  A comprehensive guide to mastering CSS Grid for complex
-                  layouts and responsive designs.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="ghost" className="w-full" asChild>
-                  <Link href="#">Read Article</Link>
-                </Button>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>JavaScript Performance</CardTitle>
-                <CardDescription>Published on January 10, 2023</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-500">
-                  Tips and techniques for optimizing JavaScript performance in
-                  modern web applications.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Button variant="ghost" className="w-full" asChild>
-                  <Link href="#">Read Article</Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          </div>
-        </div>
-      </section>
-
+      <Articles />
       <section
         id="skills"
         className="container px-4 sm:px-6 md:px-8 lg:px-10 py-12 md:py-24 lg:py-32"
