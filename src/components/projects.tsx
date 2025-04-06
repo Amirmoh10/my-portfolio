@@ -268,7 +268,6 @@ const Projects = () => {
               </p>
               <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
                 <li>Responsive layout</li>
-                <li>Dark/light theme support</li>
                 <li>
                   Reusable components from Shadcn/ui and Radix UI for
                   accessibility
