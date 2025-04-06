@@ -12,19 +12,27 @@ const Footer = () => {
         </p>
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" asChild>
-            <Link href="https://github.com" target="_blank" rel="noreferrer">
+            <Link
+              href="https://github.com/Amirmoh10"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Github className="h-4 w-4" />
               <span className="sr-only">GitHub</span>
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="https://linkedin.com" target="_blank" rel="noreferrer">
+            <Link
+              href="https://www.linkedin.com/in/amir-ghezala-14643b179/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Linkedin className="h-4 w-4" />
               <span className="sr-only">LinkedIn</span>
             </Link>
           </Button>
           <Button variant="ghost" size="icon" asChild>
-            <Link href="mailto:hello@example.com">
+            <Link href="mailto:amirmghezala@gmail.com">
               <Mail className="h-4 w-4" />
               <span className="sr-only">Email</span>
             </Link>

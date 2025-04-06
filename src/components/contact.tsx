@@ -19,14 +19,14 @@ const Contact = () => {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button asChild>
-              <Link href="mailto:hello@example.com">
+              <Link href="mailto:amirmghezala@gmail.com">
                 <Mail className="mr-2 h-4 w-4" />
                 Email Me
               </Link>
             </Button>
             <Button variant="outline" asChild>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/amir-ghezala-14643b179/"
                 target="_blank"
                 rel="noreferrer"
               >
