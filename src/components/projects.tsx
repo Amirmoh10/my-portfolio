@@ -50,21 +50,21 @@ const Projects = () => {
                 application that follows industry best practices while
                 maintaining clean code and a great user experience. It
                 demonstrates proficiency in:
-                <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
-                  <li>Modern React patterns and best practices</li>
-                  <li>Full-stack development with Next.js</li>
-                  <li>Database design and ORM usage</li>
-                  <li>Multiple rendering strategies (SSR, SSG, ISR, CSR)</li>
-                  <li>Advanced caching and data revalidation techniques</li>
-                  <li>
-                    Type-safe programming with TypeScript and Zod validation
-                  </li>
-                  <li>UI/UX design principles</li>
-                  <li>State management and data flow</li>
-                  <li>Component architecture and reusability</li>
-                  <li>Performance optimization techniques</li>
-                </ul>
               </p>
+              <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                <li>Modern React patterns and best practices</li>
+                <li>Full-stack development with Next.js</li>
+                <li>Database design and ORM usage</li>
+                <li>Multiple rendering strategies (SSR, SSG, ISR, CSR)</li>
+                <li>Advanced caching and data revalidation techniques</li>
+                <li>
+                  Type-safe programming with TypeScript and Zod validation
+                </li>
+                <li>UI/UX design principles</li>
+                <li>State management and data flow</li>
+                <li>Component architecture and reusability</li>
+                <li>Performance optimization techniques</li>
+              </ul>
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline" size="sm" asChild>
