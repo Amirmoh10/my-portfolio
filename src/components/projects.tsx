@@ -46,24 +46,55 @@ const Projects = () => {
                 />
               </div>
               <p className="mt-4 text-gray-500">
-                The application serves as an excellent example of a modern web
-                application that follows industry best practices while
-                maintaining clean code and a great user experience. It
-                demonstrates proficiency in:
+                A platform that allows users to create tickets/tasks with
+                bounties attached. Users can earn money by completing tickets
+                posted by others, creating an incentive-based task marketplace.
+              </p>
+              <p className="mt-2 text-gray-500 italic">
+                Note: Some features are still in development, including
+                authentication, sorting, pagination, password reset, email
+                integration, and the core bounty payout feature.
+              </p>
+              <p className="mt-2 text-gray-600 font-medium">
+                Currently implemented features:
               </p>
               <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
-                <li>Modern React patterns and best practices</li>
-                <li>Full-stack development with Next.js</li>
-                <li>Database design and ORM usage</li>
-                <li>Multiple rendering strategies (SSR, SSG, ISR, CSR)</li>
-                <li>Advanced caching and data revalidation techniques</li>
                 <li>
-                  Type-safe programming with TypeScript and Zod validation
+                  Full ticket lifecycle management (create, read, update,
+                  delete) with status tracking (Open, In Progress, Done)
                 </li>
-                <li>UI/UX design principles</li>
-                <li>State management and data flow</li>
-                <li>Component architecture and reusability</li>
-                <li>Performance optimization techniques</li>
+                <li>
+                  Modern, responsive UI with dark/light theme support and clean
+                  card-based interface
+                </li>
+                <li>
+                  Multiple rendering patterns including SSR, SSG, ISR, and React
+                  Server Components for optimal performance
+                </li>
+                <li>
+                  Advanced caching strategies with request memoization and data
+                  revalidation
+                </li>
+                <li>
+                  Type safety with TypeScript and Zod validation for forms and
+                  API responses
+                </li>
+                <li>
+                  PostgreSQL database with Prisma ORM for type-safe database
+                  operations
+                </li>
+                <li>
+                  Component-based architecture with error boundaries and
+                  efficient state management
+                </li>
+                <li>
+                  Performance optimization with suspense, streaming, and loading
+                  states
+                </li>
+                <li>
+                  Accessibility-focused design with responsive layouts and
+                  modern UI components from shadcn/ui
+                </li>
               </ul>
             </CardContent>
             <CardFooter className="flex justify-between">
