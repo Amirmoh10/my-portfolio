@@ -139,9 +139,7 @@ const Projects = () => {
                 <li>Responsive UI that works well on mobile and desktop</li>
                 <li>Product card display with key information</li>
                 <li>Store availability modal showing pricing and links</li>
-                <li>
-                  Clean, minimalist design with attention to user experience
-                </li>
+                <li>Minimalist design with attention to user experience</li>
                 <li>Server-side API integration with error handling</li>
               </ul>
             </CardContent>
@@ -156,23 +154,41 @@ const Projects = () => {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>Task Management App</CardTitle>
-              <CardDescription>React, Redux, Node.js</CardDescription>
+              <CardTitle>Cognigy Chat Bot</CardTitle>
+              <CardDescription>
+                React 17, TypeScript, Redux Toolkit, Material UI, Emotion,
+                Cognigy Socket Client, Jest, React Testing Library
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
                 <Image
                   src="/placeholder.svg"
-                  alt="Task Management App"
+                  alt="Cognigy Chat Bot"
                   width={400}
                   height={200}
                   className="object-cover w-full h-full"
                 />
               </div>
               <p className="mt-4 text-gray-500">
-                A full-stack task management application with user
-                authentication, task categorization, and progress tracking.
+                A real-time chat interface that connects users with a Cognigy
+                AI-powered chatbot. The application leverages WebSocket
+                technology to enable communication between users and the bot,
+                with support for both text and image-based responses.
               </p>
+              <p className="mt-2 text-gray-600 font-medium">
+                Implemented features:
+              </p>
+              <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                <li>
+                  Real-time chat interface with Cognigy AI-powered bot using
+                  WebSocket communication
+                </li>
+                <li>State management with Redux Toolkit</li>
+                <li>Loading states and error handling</li>
+                <li>Test suite with Jest and React Testing Library</li>
+                <li>Responsive UI</li>
+              </ul>
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline" size="sm" asChild>
