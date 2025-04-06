@@ -241,10 +241,13 @@ const Projects = () => {
               </Button>
             </CardFooter>
           </Card>
-          <Card>
+          <Card className="h-fit">
             <CardHeader>
               <CardTitle>Portfolio Website</CardTitle>
-              <CardDescription>Next.js, Tailwind CSS</CardDescription>
+              <CardDescription>
+                Next.js 15.2, React 19, TypeScript, Tailwind CSS, Shadcn/ui,
+                Radix UI
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
@@ -258,15 +261,41 @@ const Projects = () => {
               </div>
               <p className="mt-4 text-gray-500">
                 A minimalist portfolio website showcasing my work, skills, and
-                professional experience in web development.
+                professional experience in software development.
               </p>
+              <p className="mt-2 text-gray-600 font-medium">
+                Implemented features:
+              </p>
+              <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                <li>Responsive layout</li>
+                <li>Dark/light theme support</li>
+                <li>
+                  Reusable components from Shadcn/ui and Radix UI for
+                  accessibility
+                </li>
+                <li>Mobile navigation with slide-out menu</li>
+                <li>React Server Components for improved performance</li>
+                <li>Static Site Generation (SSG) for fast page loads</li>
+              </ul>
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline" size="sm" asChild>
-                <Link href="#">Demo</Link>
+                <Link
+                  href="https://portfolio-r88ul0ep0-amirmoh10s-projects.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Demo
+                </Link>
               </Button>
               <Button variant="outline" size="sm" asChild>
-                <Link href="#">Code</Link>
+                <Link
+                  href="https://github.com/Amirmoh10/my-portfolio"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Code
+                </Link>
               </Button>
             </CardFooter>
           </Card>
