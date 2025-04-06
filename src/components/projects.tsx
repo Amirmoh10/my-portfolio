@@ -50,11 +50,11 @@ const Projects = () => {
                 bounties attached. Users can earn money by completing tickets
                 posted by others, creating an incentive-based task marketplace.
               </p>
-              <p className="mt-2 text-gray-500 italic">
+              <div className="text-sm text-muted-foreground mt-2 italic">
                 Note: Some features are still in development, including
                 authentication, sorting, pagination, password reset, email
                 integration, and the core bounty payout feature.
-              </p>
+              </div>
               <p className="mt-2 text-gray-600 font-medium">
                 Implemented features:
               </p>
@@ -99,10 +99,22 @@ const Projects = () => {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline" size="sm" asChild>
-                <Link href="#">Demo</Link>
+                <Link
+                  href="https://ticket-bounty-jet.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Demo
+                </Link>
               </Button>
               <Button variant="outline" size="sm" asChild>
-                <Link href="#">Code</Link>
+                <Link
+                  href="https://github.com/Amirmoh10/ticket-bounty"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Code
+                </Link>
               </Button>
             </CardFooter>
           </Card>
@@ -131,6 +143,12 @@ const Projects = () => {
                 search or take advantage of the advanced search modal that
                 offers additional filters.
               </p>
+              <div className="text-sm text-muted-foreground mt-2 italic">
+                Note: If the products fetch doesn&apos;t work by the time you
+                use the demo, it would most likely be because of the API limit.
+                If that happens, just let me know and I&apos;ll try to create a
+                new API key with another email.
+              </div>
               <p className="mt-2 text-gray-600 font-medium">
                 Implemented features:
               </p>
@@ -145,10 +163,22 @@ const Projects = () => {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline" size="sm" asChild>
-                <Link href="#">Demo</Link>
+                <Link
+                  href="https://noon-task.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Demo
+                </Link>
               </Button>
               <Button variant="outline" size="sm" asChild>
-                <Link href="#">Code</Link>
+                <Link
+                  href="https://github.com/Amirmoh10/Product-Finder"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Code
+                </Link>
               </Button>
             </CardFooter>
           </Card>
@@ -192,10 +222,22 @@ const Projects = () => {
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline" size="sm" asChild>
-                <Link href="#">Demo</Link>
+                <Link
+                  href="https://cognigy-chat-bot.vercel.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Demo
+                </Link>
               </Button>
               <Button variant="outline" size="sm" asChild>
-                <Link href="#">Code</Link>
+                <Link
+                  href="https://github.com/Amirmoh10/cognigy-chat-bot"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Code
+                </Link>
               </Button>
             </CardFooter>
           </Card>
