@@ -27,7 +27,7 @@ const Projects = () => {
           </p>
         </div>
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2">
-          <Card>
+          <Card className="h-fit">
             <CardHeader>
               <CardTitle>Ticket Bounty</CardTitle>
               <CardDescription>
@@ -56,7 +56,7 @@ const Projects = () => {
                 integration, and the core bounty payout feature.
               </p>
               <p className="mt-2 text-gray-600 font-medium">
-                Currently implemented features:
+                Implemented features:
               </p>
               <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
                 <li>
@@ -106,25 +106,44 @@ const Projects = () => {
               </Button>
             </CardFooter>
           </Card>
-          <Card>
+          <Card className="h-fit">
             <CardHeader>
-              <CardTitle>Weather App</CardTitle>
-              <CardDescription>Next.js, API Integration</CardDescription>
+              <CardTitle>Product Finder</CardTitle>
+              <CardDescription>
+                Next.js 12, React 17, CSS Modules, API Integration
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
                 <Image
                   src="/placeholder.svg"
-                  alt="Weather App"
+                  alt="Product Finder"
                   width={400}
                   height={200}
                   className="object-cover w-full h-full"
                 />
               </div>
               <p className="mt-4 text-gray-500">
-                A weather application that provides real-time forecasts,
-                historical data, and location-based weather information.
+                Product finder is an app that fetches and renders product data
+                offered by the Barcode Lookup API service. It allows users to
+                search for product information to render this information as a
+                card. The user can either search for a product using a keywords
+                search or take advantage of the advanced search modal that
+                offers additional filters.
               </p>
+              <p className="mt-2 text-gray-600 font-medium">
+                Implemented features:
+              </p>
+              <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                <li>Product search using keywords or advanced filters</li>
+                <li>Responsive UI that works well on mobile and desktop</li>
+                <li>Product card display with key information</li>
+                <li>Store availability modal showing pricing and links</li>
+                <li>
+                  Clean, minimalist design with attention to user experience
+                </li>
+                <li>Server-side API integration with error handling</li>
+              </ul>
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline" size="sm" asChild>
