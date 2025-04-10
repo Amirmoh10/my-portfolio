@@ -143,12 +143,6 @@ const Projects = () => {
                 search or take advantage of the advanced search modal that
                 offers additional filters.
               </p>
-              <div className="text-sm text-muted-foreground mt-2 italic">
-                Note: If the products fetch doesn&apos;t work by the time you
-                use the demo, it would most likely be because of the API limit.
-                If that happens, just let me know and I&apos;ll try to create a
-                new API key with another email.
-              </div>
               <p className="mt-2 text-gray-600 font-medium">
                 Implemented features:
               </p>
