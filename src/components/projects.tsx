@@ -129,14 +129,14 @@ const Projects = () => {
               <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
                 <Image
                   src="/products-finder.png"
-                  alt="Product Finder"
+                  alt="Products Finder"
                   width={400}
                   height={200}
                   className="object-cover w-full h-full"
                 />
               </div>
               <p className="mt-4 text-gray-500">
-                Product finder is an app that fetches and renders product data
+                Products finder is an app that fetches and renders product data
                 offered by the Barcode Lookup API service. It allows users to
                 search for product information to render this information as a
                 card. The user can either search for a product using a keywords
