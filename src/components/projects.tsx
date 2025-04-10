@@ -38,7 +38,7 @@ const Projects = () => {
             <CardContent>
               <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
                 <Image
-                  src="/placeholder.svg"
+                  src="/ticket-bounty.png"
                   alt="Ticket Bounty"
                   width={400}
                   height={200}
@@ -128,7 +128,7 @@ const Projects = () => {
             <CardContent>
               <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
                 <Image
-                  src="/placeholder.svg"
+                  src="/products-finder.png"
                   alt="Product Finder"
                   width={400}
                   height={200}
@@ -205,7 +205,7 @@ const Projects = () => {
             <CardContent>
               <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
                 <Image
-                  src="/placeholder.svg"
+                  src="/cognigy-chat-bot.png"
                   alt="Cognigy Chat Bot"
                   width={400}
                   height={200}
@@ -264,7 +264,7 @@ const Projects = () => {
             <CardContent>
               <div className="aspect-video overflow-hidden rounded-lg bg-gray-100">
                 <Image
-                  src="/placeholder.svg"
+                  src="/portfolio.png"
                   alt="Portfolio Website"
                   width={400}
                   height={200}
