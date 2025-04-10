@@ -122,7 +122,7 @@ const Projects = () => {
             <CardHeader>
               <CardTitle>Product Finder</CardTitle>
               <CardDescription>
-                Next.js 12, React 17, CSS Modules, API Integration
+                React 19, TypeScript, PostgreSQL with Drizzle ORM, Honojs, Vite
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -153,18 +153,36 @@ const Projects = () => {
                 Implemented features:
               </p>
               <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-600">
-                <li>Product search using keywords or advanced filters</li>
-                <li>Responsive UI that works well on mobile and desktop</li>
-                <li>Product card display with key information</li>
-                <li>Store availability modal showing pricing and links</li>
-                <li>Minimalist design with attention to user experience</li>
-                <li>Server-side API integration with error handling</li>
+                <li>
+                  Full product search functionality with advanced filtering by
+                  brand, barcode, name, and manufacturer
+                </li>
+                <li>
+                  Real-time product querying with responsive loading states
+                </li>
+                <li>Modern, responsive UI with clean card-based interface</li>
+                <li>Type-safe database schema and queries using Drizzle ORM</li>
+                <li>
+                  REST API built with Hono for efficient server-side processing
+                </li>
+                <li>
+                  Optimized database structure with foreign key relationships
+                </li>
+                <li>Type safety with TypeScript for reliable code quality</li>
+                <li>
+                  Efficient state management with useReducer and context
+                  patterns
+                </li>
+                <li>
+                  Environment-aware configuration for development and production
+                </li>
+                <li>Database migration system for schema version control</li>
               </ul>
             </CardContent>
             <CardFooter className="flex justify-between">
               <Button variant="outline" size="sm" asChild>
                 <Link
-                  href="https://noon-task.vercel.app/"
+                  href="https://products-finder.vercel.app/"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -173,7 +191,7 @@ const Projects = () => {
               </Button>
               <Button variant="outline" size="sm" asChild>
                 <Link
-                  href="https://github.com/Amirmoh10/Product-Finder"
+                  href="https://github.com/Amirmoh10/products-finder"
                   target="_blank"
                   rel="noreferrer"
                 >
