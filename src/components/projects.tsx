@@ -120,7 +120,7 @@ const Projects = () => {
           </Card>
           <Card className="h-fit">
             <CardHeader>
-              <CardTitle>Product Finder</CardTitle>
+              <CardTitle>Products Finder</CardTitle>
               <CardDescription>
                 React 19, TypeScript, PostgreSQL with Drizzle ORM, Honojs, Vite
               </CardDescription>
