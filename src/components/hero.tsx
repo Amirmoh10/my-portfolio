@@ -17,8 +17,8 @@ const Hero = () => {
           Amir Ghezala
         </h1>
         <p className="max-w-[700px] text-gray-500 text-sm md:text-base lg:text-xl">
-          Fullstack Software Engineer crafting performant web applications with
-          modern technologies and clean architecture
+          Fullstack engineer focused on building fast and scalable web
+          applications
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
           <Button asChild>

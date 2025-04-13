@@ -12,7 +12,7 @@ const Skills = () => {
             Skills
           </h2>
           <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Technologies and tools I specialize in
+            Technologies and tools I specialize in.
           </p>
         </div>
         <div className="grid gap-4">

@@ -23,7 +23,8 @@ const Projects = () => {
             Projects
           </h2>
           <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Side projects and personal work I&apos;ve built
+            I build small side apps to selectively learn new technologies or
+            concepts I&apos;m interested in.
           </p>
         </div>
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2">

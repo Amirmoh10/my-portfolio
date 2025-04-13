@@ -10,7 +10,8 @@ const Experience = () => {
             Experience
           </h2>
           <p className="max-w-[700px] text-gray-500 text-sm md:text-base lg:text-xl">
-            My professional journey in software development
+            4 years of shipping web and mobile apps with React, TypeScript, and
+            CSS.
           </p>
         </div>
         <div className="grid gap-6 md:gap-8">
@@ -21,24 +22,43 @@ const Experience = () => {
               <p className="text-xs md:text-sm text-gray-500">
                 Germany (Remote) • Feb 2023 - Present
               </p>
+              <div className="mt-1 flex flex-wrap gap-2">
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  React
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  React Native
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  TypeScript
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  Redux
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  Next.js
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  Directus CMS
+                </span>
+              </div>
             </div>
             <ul className="text-sm md:text-base text-gray-600 list-disc pl-5 space-y-2">
               <li>
-                Develop mobile and web apps using technologies such as React,
-                React Native, TypeScript, and Redux.
+                Build and maintain cross-platform mobile (iOS and Android) and
+                web applications.
               </li>
               <li>
-                Develop and maintain features for the company&apos;s website,
-                leveraging Next.js and Directus headless CMS.
+                Develop and ship new features for the company website using a
+                headless CMS setup.
               </li>
               <li>
-                Contribute to projects from idea to launch and beyond within
-                cross-functional teams, including designers and backend
-                developers.
+                Contribute across the entire project lifecycle—from planning to
+                deployment—alongside product managers and designers.
               </li>
               <li>
-                Conduct code reviews to ensure adherence to best practices and
-                code quality.
+                Conduct code reviews to uphold code quality and team-wide
+                consistency.
               </li>
             </ul>
           </div>
@@ -49,19 +69,41 @@ const Experience = () => {
               <p className="text-xs md:text-sm text-gray-500">
                 Germany (Remote) • May 2022 - Feb 2023
               </p>
+              <div className="mt-1 flex flex-wrap gap-2">
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  React
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  TypeScript
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  Redux
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  Material UI
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  Cypress
+                </span>
+              </div>
             </div>
             <ul className="text-sm md:text-base text-gray-600 list-disc pl-5 space-y-2">
-              <li>Work on the frontend of Cognigy AI application.</li>
               <li>
-                Use technologies such as React, TypeScript, Redux, and Cypress
-                to write type-safe and tested code.
+                Built frontend features for Cognigy&apos;s conversational AI
+                platform.
               </li>
               <li>
-                Collaborate closely with designers and product managers to
-                deliver features.
+                Worked closely with backend developers and designers to deliver
+                features.
               </li>
-              <li>Present features I build every sprint.</li>
-              <li>Conduct code reviews daily.</li>
+              <li>
+                Participated in daily code reviews and sprint presentations to
+                ensure quality and transparency.
+              </li>
+              <li>
+                Collaborated on backlog refinement and iterative delivery in an
+                agile team environment.
+              </li>
             </ul>
           </div>
           <div className="flex flex-col gap-2 border-l pl-4 md:pl-6 relative">
@@ -71,23 +113,34 @@ const Experience = () => {
               <p className="text-xs md:text-sm text-gray-500">
                 Germany (Remote) • Mar 2021 - May 2022
               </p>
+              <div className="mt-1 flex flex-wrap gap-2">
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  ReasonML (Rescript)
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  OCaml
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  React
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  Gatsby
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  JavaScript
+                </span>
+                <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+                  CSS
+                </span>
+              </div>
             </div>
             <ul className="text-sm md:text-base text-gray-600 list-disc pl-5 space-y-2">
               <li>
-                Independently translated Figma design mock-ups into live user
-                interfaces using React and CSS.
-              </li>
-              <li>Interacted with Backend APIs to fetch data.</li>
-              <li>
-                Worked in an environment of keen code reviews and testing.
+                Contributed to Ahref&apos;s design system, creating accessible
+                and reusable components used by 5 various teams.
               </li>
               <li>
-                Collaborated with designers to implement and maintain accessible
-                components in a design system used across the company&apos;s
-                teams.
-              </li>
-              <li>
-                Implemented{" "}
+                Developed creative landing{" "}
                 <a
                   href="https://ahrefs.com/vs"
                   target="_blank"
@@ -96,9 +149,24 @@ const Experience = () => {
                 >
                   pages
                 </a>{" "}
-                on a Gatsby static site.
+                for Ahrefs&apos; website.
               </li>
-              <li>Contributed to open source projects.</li>
+              <li>
+                Had the chance to work in a culture where code reviews and
+                testing were not second priority.
+              </li>
+              <li>
+                Contributed to open-source projects such as{" "}
+                <a
+                  href="https://github.com/giraud/bs-css"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline hover:underline"
+                >
+                  bs-css
+                </a>
+                .
+              </li>
             </ul>
           </div>
         </div>

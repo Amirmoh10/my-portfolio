@@ -20,7 +20,8 @@ function Articles() {
             Articles
           </h2>
           <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Sharing my knowledge and insights about web technologies
+            I occasionally write articles that could help others pick up
+            technologies I&apos;m passionate about.
           </p>
         </div>
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
