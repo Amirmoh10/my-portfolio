@@ -1,33 +1,96 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import type { DesktopItem, Position } from "../lib/types";
+import type { Position } from "../lib/types";
 import { DESKTOP_ITEMS } from "../lib/data";
 import { WindowProvider, useWindows } from "../lib/windowStore";
+import { clamp, useViewportWidth, useViewportHeight } from "../lib/viewport";
 import DesktopIcon from "./DesktopIcon";
 import Window from "./Window";
 import FolderView from "./FolderView";
 import FileView from "./FileView";
 
+/** Below this width we use a fitted grid; at/above it, the Figma desktop coords. */
+const WIDE_MIN = 1024;
+const ICON_W = 88;
+const ICON_H = 104;
+
+type Layout = "compact" | "wide";
+
+/** Lay icons out in a top-anchored grid sized to the viewport (mobile/tablet). */
+function computeGridLayout(width: number): Record<string, Position> {
+  const cell = 92;
+  const padX = 16;
+  const padY = 20;
+  const cols = Math.max(2, Math.floor((width - padX) / cell));
+  const map: Record<string, Position> = {};
+  DESKTOP_ITEMS.forEach((it, i) => {
+    map[it.id] = {
+      x: padX + (i % cols) * cell,
+      y: padY + Math.floor(i / cols) * cell,
+    };
+  });
+  return map;
+}
+
+/** Figma desktop coordinates (used on wide screens). */
+const WIDE_BASE: Record<string, Position> = Object.fromEntries(
+  DESKTOP_ITEMS.map((it) => [it.id, it.position ?? { x: 40, y: 40 }]),
+);
+
 function DesktopSurface() {
   const { windows, focusedId, open, close } = useWindows();
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  // Per-icon positions, seeded from the data, so they can be dragged.
-  const [positions, setPositions] = useState<Record<string, Position>>(() =>
-    Object.fromEntries(
-      DESKTOP_ITEMS.map((it) => [it.id, it.position ?? { x: 40, y: 40 }]),
-    ),
+  const width = useViewportWidth();
+  const height = useViewportHeight();
+  const layout: Layout = width < WIDE_MIN ? "compact" : "wide";
+
+  // Default positions for the current layout class.
+  const base = useMemo(
+    () => (layout === "wide" ? WIDE_BASE : computeGridLayout(width)),
+    [layout, width],
+  );
+
+  // User drags are stored PER layout class, so a desktop arrangement never
+  // leaks into the mobile/tablet layout (and vice-versa).
+  const [overrides, setOverrides] = useState<Record<Layout, Record<string, Position>>>(
+    { compact: {}, wide: {} },
+  );
+
+  // Keep every icon fully on-screen for the current viewport.
+  const clampIcon = useCallback(
+    (p: Position): Position => ({
+      x: clamp(p.x, 0, Math.max(0, width - ICON_W)),
+      y: clamp(p.y, 0, Math.max(0, height - ICON_H)),
+    }),
+    [width, height],
+  );
+
+  const positions = useMemo(() => {
+    const active = overrides[layout];
+    const out: Record<string, Position> = {};
+    for (const it of DESKTOP_ITEMS) {
+      out[it.id] = clampIcon(active[it.id] ?? base[it.id]);
+    }
+    return out;
+  }, [overrides, layout, base, clampIcon]);
+
+  const moveIcon = useCallback(
+    (id: string, pos: Position) => {
+      const clamped = clampIcon(pos);
+      setOverrides((prev) => ({
+        ...prev,
+        [layout]: { ...prev[layout], [id]: clamped },
+      }));
+    },
+    [layout, clampIcon],
   );
 
   const itemsById = useMemo(
     () => new Map(DESKTOP_ITEMS.map((it) => [it.id, it])),
     [],
   );
-
-  const moveIcon = useCallback((id: string, pos: Position) => {
-    setPositions((prev) => ({ ...prev, [id]: pos }));
-  }, []);
 
   // Arrow-key selection: pick the nearest icon in the pressed direction.
   const moveSelection = useCallback(
@@ -41,6 +104,7 @@ function DesktopSurface() {
       for (const it of DESKTOP_ITEMS) {
         if (it.id === selectedId) continue;
         const p = positions[it.id];
+        if (!p) continue;
         const dx = p.x - current.x;
         const dy = p.y - current.y;
         const ok =
@@ -96,8 +160,9 @@ function DesktopSurface() {
       }}
       className="relative h-dvh w-dvw overflow-hidden"
     >
-      {/* Desktop icons */}
-      {DESKTOP_ITEMS.map((item: DesktopItem) => (
+      {/* Desktop icons — absolutely positioned (and draggable) on every
+          viewport; layout adapts to compact vs. wide and is clamped on-screen. */}
+      {DESKTOP_ITEMS.map((item) => (
         <DesktopIcon
           key={item.id}
           item={item}
@@ -106,7 +171,7 @@ function DesktopSurface() {
           selected={selectedId === item.id}
           onSelect={() => setSelectedId(item.id)}
           onOpen={() => open(item)}
-          onMove={(pos) => moveIcon(item.id, pos)}
+          onMove={(p) => moveIcon(item.id, p)}
         />
       ))}
 
