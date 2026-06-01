@@ -1,3 +1,5 @@
+import Desktop from "./components/Desktop";
+
 export default function Home() {
-  return <div>Hello my portfolio</div>;
+  return <Desktop />;
 }
