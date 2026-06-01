@@ -1,68 +1,29 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Position } from "../lib/types";
 import { DESKTOP_ITEMS } from "../lib/data";
 import { WindowProvider, useWindows } from "../lib/windowStore";
-import {
-  clamp,
-  useViewportWidth,
-  useViewportHeight,
-  useIsHydrated,
-} from "../lib/viewport";
+import { clamp, useViewportWidth, useViewportHeight } from "../lib/viewport";
 import DesktopIcon from "./DesktopIcon";
 import Window from "./Window";
 import FolderView from "./FolderView";
 import FileView from "./FileView";
 
-/** Below this width we use a fitted grid; at/above it, the Figma desktop coords. */
-const WIDE_MIN = 1024;
 const ICON_W = 88;
 const ICON_H = 104;
-
-type Layout = "compact" | "wide";
-
-/** Lay icons out in a top-anchored grid sized to the viewport (mobile/tablet). */
-function computeGridLayout(width: number): Record<string, Position> {
-  const cell = 92;
-  const padX = 16;
-  const padY = 20;
-  const cols = Math.max(2, Math.floor((width - padX) / cell));
-  const map: Record<string, Position> = {};
-  DESKTOP_ITEMS.forEach((it, i) => {
-    map[it.id] = {
-      x: padX + (i % cols) * cell,
-      y: padY + Math.floor(i / cols) * cell,
-    };
-  });
-  return map;
-}
-
-/** Figma desktop coordinates (used on wide screens). */
-const WIDE_BASE: Record<string, Position> = Object.fromEntries(
-  DESKTOP_ITEMS.map((it) => [it.id, it.position ?? { x: 40, y: 40 }]),
-);
 
 function DesktopSurface() {
   const { windows, focusedId, open, close } = useWindows();
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   const width = useViewportWidth();
   const height = useViewportHeight();
-  const hydrated = useIsHydrated();
-  const layout: Layout = width < WIDE_MIN ? "compact" : "wide";
 
-  // Default positions for the current layout class.
-  const base = useMemo(
-    () => (layout === "wide" ? WIDE_BASE : computeGridLayout(width)),
-    [layout, width],
-  );
-
-  // User drags are stored PER layout class, so a desktop arrangement never
-  // leaks into the mobile/tablet layout (and vice-versa).
-  const [overrides, setOverrides] = useState<Record<Layout, Record<string, Position>>>(
-    { compact: {}, wide: {} },
-  );
+  // Positions the user has dragged an icon to. An icon without an override
+  // flows in the CSS grid below; one with an override is absolutely positioned.
+  const [overrides, setOverrides] = useState<Record<string, Position>>({});
 
   // Keep every icon fully on-screen for the current viewport.
   const clampIcon = useCallback(
@@ -73,24 +34,19 @@ function DesktopSurface() {
     [width, height],
   );
 
-  const positions = useMemo(() => {
-    const active = overrides[layout];
+  // Overrides, re-clamped to the current viewport so a dragged icon never ends
+  // up off-screen after a resize.
+  const clampedOverrides = useMemo(() => {
     const out: Record<string, Position> = {};
-    for (const it of DESKTOP_ITEMS) {
-      out[it.id] = clampIcon(active[it.id] ?? base[it.id]);
-    }
+    for (const id in overrides) out[id] = clampIcon(overrides[id]);
     return out;
-  }, [overrides, layout, base, clampIcon]);
+  }, [overrides, clampIcon]);
 
   const moveIcon = useCallback(
     (id: string, pos: Position) => {
-      const clamped = clampIcon(pos);
-      setOverrides((prev) => ({
-        ...prev,
-        [layout]: { ...prev[layout], [id]: clamped },
-      }));
+      setOverrides((prev) => ({ ...prev, [id]: clampIcon(pos) }));
     },
-    [layout, clampIcon],
+    [clampIcon],
   );
 
   const itemsById = useMemo(
@@ -98,10 +54,22 @@ function DesktopSurface() {
     [],
   );
 
-  // Arrow-key selection: pick the nearest icon in the pressed direction.
+  // Arrow-key selection: pick the nearest icon in the pressed direction. Icon
+  // positions are read from the live DOM so this works whether an icon is
+  // flowing in the grid or has been dragged to an absolute spot.
   const moveSelection = useCallback(
     (dir: "up" | "down" | "left" | "right") => {
-      const current = selectedId ? positions[selectedId] : null;
+      const rects: Record<string, Position> = {};
+      gridRef.current
+        ?.querySelectorAll<HTMLElement>("[data-icon-id]")
+        .forEach((el) => {
+          const id = el.dataset.iconId;
+          if (!id) return;
+          const r = el.getBoundingClientRect();
+          rects[id] = { x: r.left, y: r.top };
+        });
+
+      const current = selectedId ? rects[selectedId] : null;
       if (!current) {
         setSelectedId(DESKTOP_ITEMS[0]?.id ?? null);
         return;
@@ -109,7 +77,7 @@ function DesktopSurface() {
       let best: { id: string; dist: number } | null = null;
       for (const it of DESKTOP_ITEMS) {
         if (it.id === selectedId) continue;
-        const p = positions[it.id];
+        const p = rects[it.id];
         if (!p) continue;
         const dx = p.x - current.x;
         const dy = p.y - current.y;
@@ -124,7 +92,7 @@ function DesktopSurface() {
       }
       if (best) setSelectedId(best.id);
     },
-    [selectedId, positions],
+    [selectedId],
   );
 
   useEffect(() => {
@@ -159,24 +127,32 @@ function DesktopSurface() {
     return () => window.removeEventListener("keydown", onKey);
   }, [focusedId, selectedId, close, open, itemsById, moveSelection]);
 
+  const clearSelection = useCallback((e: React.PointerEvent) => {
+    // Clicking empty desktop (or the grid gaps) clears selection.
+    if (e.target === e.currentTarget) setSelectedId(null);
+  }, []);
+
   return (
     <main
-      onPointerDown={(e) => {
-        if (e.target === e.currentTarget) setSelectedId(null);
-      }}
+      onPointerDown={clearSelection}
       className="relative h-dvh w-dvw overflow-hidden"
     >
-      {/* Desktop icons — absolutely positioned (and draggable) on every
-          viewport; layout adapts to compact vs. wide and is clamped on-screen.
-          Hidden until hydration so they never paint at the SSR-default size
-          and then jump to their real positions. */}
-      <div className={hydrated ? undefined : "invisible"}>
+      {/* Desktop icons. Un-dragged icons flow in this CSS grid, so the server
+          renders the final layout and there's no post-hydration flash; the
+          grid also re-flows responsively on resize. A dragged icon carries a
+          `position` override and is pulled out of flow (absolutely placed). */}
+      <div
+        ref={gridRef}
+        onPointerDown={clearSelection}
+        className="grid content-start justify-start gap-1 px-4 py-5"
+        style={{ gridTemplateColumns: "repeat(auto-fill, 88px)" }}
+      >
         {DESKTOP_ITEMS.map((item) => (
           <DesktopIcon
             key={item.id}
             item={item}
             mode="desktop"
-            position={positions[item.id]}
+            position={clampedOverrides[item.id]}
             selected={selectedId === item.id}
             onSelect={() => setSelectedId(item.id)}
             onOpen={() => open(item)}
