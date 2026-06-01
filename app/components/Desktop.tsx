@@ -4,7 +4,12 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Position } from "../lib/types";
 import { DESKTOP_ITEMS } from "../lib/data";
 import { WindowProvider, useWindows } from "../lib/windowStore";
-import { clamp, useViewportWidth, useViewportHeight } from "../lib/viewport";
+import {
+  clamp,
+  useViewportWidth,
+  useViewportHeight,
+  useIsHydrated,
+} from "../lib/viewport";
 import DesktopIcon from "./DesktopIcon";
 import Window from "./Window";
 import FolderView from "./FolderView";
@@ -44,6 +49,7 @@ function DesktopSurface() {
 
   const width = useViewportWidth();
   const height = useViewportHeight();
+  const hydrated = useIsHydrated();
   const layout: Layout = width < WIDE_MIN ? "compact" : "wide";
 
   // Default positions for the current layout class.
@@ -161,19 +167,23 @@ function DesktopSurface() {
       className="relative h-dvh w-dvw overflow-hidden"
     >
       {/* Desktop icons — absolutely positioned (and draggable) on every
-          viewport; layout adapts to compact vs. wide and is clamped on-screen. */}
-      {DESKTOP_ITEMS.map((item) => (
-        <DesktopIcon
-          key={item.id}
-          item={item}
-          mode="desktop"
-          position={positions[item.id]}
-          selected={selectedId === item.id}
-          onSelect={() => setSelectedId(item.id)}
-          onOpen={() => open(item)}
-          onMove={(p) => moveIcon(item.id, p)}
-        />
-      ))}
+          viewport; layout adapts to compact vs. wide and is clamped on-screen.
+          Hidden until hydration so they never paint at the SSR-default size
+          and then jump to their real positions. */}
+      <div className={hydrated ? undefined : "invisible"}>
+        {DESKTOP_ITEMS.map((item) => (
+          <DesktopIcon
+            key={item.id}
+            item={item}
+            mode="desktop"
+            position={positions[item.id]}
+            selected={selectedId === item.id}
+            onSelect={() => setSelectedId(item.id)}
+            onOpen={() => open(item)}
+            onMove={(p) => moveIcon(item.id, p)}
+          />
+        ))}
+      </div>
 
       {/* Open windows */}
       {windows.map((win) => (
